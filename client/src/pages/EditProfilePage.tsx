@@ -47,10 +47,10 @@ const EditProfilePage = () => {
         }
         toast.success('Image Uploaded Successfully, now save update!', { id: toastId });
       } else {
-        toast.error('Failed to Upload Image', { id: toastId });
+        toast.error('In Failed to Upload Image', { id: toastId });
       }
     } catch (error) {
-      toast.error('Failed to Upload Image', { id: toastId });
+      toast.error('Try Failed to Upload Image', { id: toastId });
     }
   };
 

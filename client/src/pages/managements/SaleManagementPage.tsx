@@ -112,7 +112,7 @@ const SaleManagementPage = () => {
       <Flex justify='space-between' style={{ margin: '5px', gap: 4 }}>
         <SearchInput setQuery={setQuery} placeholder='Search Sold Products...' />
         <Button type='primary' onClick={handleDownloadPDF}>
-          Download PDF
+          Generate Report
         </Button>
       </Flex>
       <Table

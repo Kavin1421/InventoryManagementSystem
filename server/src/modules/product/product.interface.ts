@@ -2,12 +2,13 @@ import { Types } from 'mongoose';
 
 export interface IProduct {
   user: Types.ObjectId;
-  name: string;
   seller: Types.ObjectId;
   category: Types.ObjectId;
+  name: string;
+  size?: 'SMALL' | 'MEDIUM' | 'LARGE';
   brand?: Types.ObjectId;
-  size?: string;
   price: number;
   stock: number;
-  description: string;
+  description?: string;
+  imageUrl?: string; // ✅ Add this line
 }

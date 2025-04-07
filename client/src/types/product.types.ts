@@ -1,4 +1,5 @@
 export type IProduct = {
+  imageUrl: any
   _id: string
   name: string
   description?: string

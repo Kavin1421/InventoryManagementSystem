@@ -33,19 +33,21 @@ const ProductManagePage = () => {
     setCurrent(page);
   };
 
-  const tableData = products?.data?.map((product: IProduct) => ({
-    key: product._id,
-    name: product.name,
-    category: product.category,
-    categoryName: product.category.name,
-    price: product.price,
-    stock: product.stock,
-    seller: product?.seller,
-    sellerName: product?.seller?.name || 'DELETED SELLER',
-    brand: product.brand,
-    size: product.size,
-    description: product.description,
-  }));
+ const tableData = products?.data?.map((product: IProduct) => ({
+  key: product._id,
+  name: product.name,
+  category: product.category,
+  categoryName: product.category.name,
+  price: product.price,
+  stock: product.stock,
+  seller: product?.seller,
+  sellerName: product?.seller?.name || 'DELETED SELLER',
+  brand: product.brand,
+  size: product.size,
+  description: product.description,
+  imageUrl: product.imageUrl, // ✅ ensure this is present from your backend
+}));
+
 
   const columns: TableColumnsType<any> = [
     {
@@ -54,16 +56,36 @@ const ProductManagePage = () => {
       dataIndex: 'name',
     },
     {
+      title: 'Image',
+      key: 'image',
+      dataIndex: 'imageUrl',
+      // align: 'center',
+      render: (url: string) => (
+        <img
+        src={url}
+          alt="Product"
+          style={{
+            width: '60px',
+            height: '60px',
+            objectFit: 'cover',
+            borderRadius: '6px',
+            border: '1px solid #ccc',
+            // display: 'block', 
+          }}
+        />
+      ),
+    },
+    {
       title: 'Category',
       key: 'categoryName',
       dataIndex: 'categoryName',
-      align: 'center',
+      // align: 'center',
     },
     {
       title: 'price',
       key: 'price',
       dataIndex: 'price',
-      align: 'center',
+      // align: 'center',
     },
     {
       title: 'stock',
@@ -97,6 +119,8 @@ const ProductManagePage = () => {
       },
       width: '1%',
     },
+    
+    
   ];
 
   return (
